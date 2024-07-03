@@ -1,0 +1,34 @@
+Data adapted from the Open-Source Psychometrics Project, https://openpsychometrics.org/_rawdata/.
+
+Demographic data:
+
+age: Participant's age
+gender:	Participant's reported gender (0 = Unanswered, 1 = Male, 2 = Female, 3 = Other)
+country: Participant's country (ISO country code)
+
+The data in the columns below was collected on a 1-5 scale, where 1 indicates "disagree" and 5 indicates "agree."
+
+Extroversion:
+E1: I am the life of the party.
+E2: I feel comfortable around people.
+E3: I start conversations.
+
+Neuroticism:
+N1: I get stressed out easily.
+N2: I worry about things.
+N3: I get upset easily.
+
+Agreeableness:
+A1: I am interested in people.
+A2: I sympathize with others' feelings.
+A3: I make people feel at ease.
+
+Conscientiousness:
+C1: I am always prepared.
+C2: I pay attention to details.
+C3: I follow a schedule.
+
+Openness:
+O1: I have a vivid imagination.
+O2: I am quick to understand things.
+O3: I am full of ideas.
