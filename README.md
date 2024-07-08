@@ -1,3 +1,3 @@
-# harvard_cs50r
+# Harvard CS50R
 
 to train Harvard CS50R course
