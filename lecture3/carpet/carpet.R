@@ -20,33 +20,43 @@
 #
 #===============================================================================
 
+#===============================================================================
+# Function to calculate the average yearly growth rate in visitor numbers
+#===============================================================================
+
 calculate_growth_rate <- function(years, visitors) {
-  # Ensure the input is sorted by years
-  data <- data.frame(years = years, visitors = visitors)
-  data <- data[order(data$years),]
+  # Combine the year and visitor lists into a data frame and sort by years
+  data_frame <- data.frame(years = years, visitors = visitors)
+  data_frame <- data_frame[order(data_frame$years),]
   
-  # Calculate the difference in visitors and years
-  visitor_diff <- data$visitors[nrow(data)] - data$visitors[1]
-  year_diff <- data$years[nrow(data)] - data$years[1]
+  # Compute the difference in visitor numbers between the last and first years
+  visitor_difference <- data_frame$visitors[nrow(data_frame)] - data_frame$visitors[1]
+  # Compute the difference in years between the last and first records
+  year_difference <- data_frame$years[nrow(data_frame)] - data_frame$years[1]
   
-  # Calculate the average yearly growth
-  average_yearly_growth <- visitor_diff / year_diff
-  return(average_yearly_growth)
+  # Calculate the average increase in visitors per year
+  avg_annual_growth <- visitor_difference / year_difference
+  return(avg_annual_growth)
 }
 
+#===============================================================================
+# Function to predict the number of visitors for a specified future year
+#===============================================================================
+
 predict_visitors <- function(years, visitors, year) {
-  average_yearly_growth <- calculate_growth_rate(years, visitors)
+  # Obtain the average yearly growth rate
+  avg_annual_growth <- calculate_annual_growth(years, visitors)
   
-  # Get the most recent year and the corresponding number of visitors
-  current_year <- max(years)
-  current_visitors <- visitors[which(years == current_year)]
+  # Identify the most recent year and its corresponding visitor count
+  latest_year <- max(years)
+  latest_visitor_count <- visitor_list[which(years == latest_year)]
   
-  # Calculate the number of years into the future
-  n <- year - current_year
+  # Determine the number of years between the latest year and the target year
+  years_to_target <- year - latest_year
   
-  # Predict future visitors
-  future_visitors <- current_visitors + (average_yearly_growth * n)
-  return(future_visitors)
+  # Predict the future visitor count based on the growth rate and time span
+  predicted_visitor_count <- latest_visitor_count + (avg_annual_growth * years_to_target)
+  return(predicted_visitor_count)
 }
 
 visitors <- read.csv("visitors.csv")
