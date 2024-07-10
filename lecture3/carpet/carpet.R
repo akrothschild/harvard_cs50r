@@ -45,11 +45,11 @@ calculate_growth_rate <- function(years, visitors) {
 
 predict_visitors <- function(years, visitors, year) {
   # Obtain the average yearly growth rate
-  avg_annual_growth <- calculate_annual_growth(years, visitors)
+  avg_annual_growth <- calculate_growth_rate(years, visitors)
   
   # Identify the most recent year and its corresponding visitor count
   latest_year <- max(years)
-  latest_visitor_count <- visitor_list[which(years == latest_year)]
+  latest_visitor_count <- visitors[which(years == latest_year)]
   
   # Determine the number of years between the latest year and the target year
   years_to_target <- year - latest_year
